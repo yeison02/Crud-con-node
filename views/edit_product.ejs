@@ -1,0 +1,50 @@
+<%- include("layout/header") %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto mt-4">
+                <div class="card shadow">
+                    <div class="card-header bg-success">
+                        <h3 class="text-light">Editar Producto (<%= product.name %>)</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="/update/<%= product._id %>" method="post" id="add-form"
+                            enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="name">Nombre</label>
+                                <input type="text" name="name" class="form-control form-control-lg fs-6"
+                                    placeholder="Nombre del producto" value="<%= product.name %>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cantAnt">CantDayAnt</label>
+                                <input type="number" name="cantAnt" class="form-control form-control-lg fs-6"
+                                    placeholder="0" value="<%= product.cantDayAnt %>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cantEnt">CantDayEnt</label>
+                                <input type="number" name="cantEnt" class="form-control form-control-lg fs-6"
+                                    placeholder="0" value="<%= product.cantDayEnt %>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cantFinal">CantDayFinal</label>
+                                <input type="number" name="cantFinal" class="form-control form-control-lg fs-6"
+                                    placeholder="0" value="<%= product.cantDayFinal %>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Select image</label>
+                                <input type="file" name="image" class="form-control form-control-lg">
+                                <img src="/<%= product.img %>" width="100" class="mt-1">
+                            </div>
+                            <input type="hidden" name="old_img" value="<%= product.img %>">
+                            <div class="mb-3 d-grid">
+                                <input type="submit" name="submit" value="Actualizar Producto"
+                                    class="btn btn-success btn-lg">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("layout/footer") %>
